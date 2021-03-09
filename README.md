@@ -28,7 +28,7 @@ The idea behind this project is to provide a complete backend API used along wit
 
 ## Mock
 
-If you don't want to create a mongoDb cloud database, yhen you can test this API using mock data only.\
+If you don't want to create a mongoDb cloud database, then you can test this API using mock data only.\
 You just need to enable the attribute <strong>useMock</strong> inside the <strong>environment.ts</strong> file.\
 After that all the endpoints will return a static data, so all routers are intercepeted using a middleware (more details below).
 
@@ -49,6 +49,7 @@ However, you can also set up your own local mongodb database structure and repla
 
 Checkout the documentation and create your own cloud database for free:\
 [Set up your MongoDB Atlas - Getting Started](https://docs.atlas.mongodb.com/getting-started/)\
+
 Example of connection string: mongodb+srv://your-user:<password>@cluster.rhp27.mongodb.net/<dbname>?retryWrites=true&w=majority
 
 
@@ -87,13 +88,13 @@ In this layer we also deals with queries and prepare the expected object communi
 
 The application was split up in different controllers, such as:
 
-* Order\
+* <strong>Order</strong>\
 Provides functionalities to fetch all orders saved by the authenticated user, create a new one and also review.
 
-* Product\
+* <strong>Product</strong>\
 Provides a single functionality to fetch all products pre populated in the database.
 
-* User\
+* <strong>User</strong>\
 Provides functionalities to authenticate, register, sign and also save the push notification permission.
 
 ## Integration
