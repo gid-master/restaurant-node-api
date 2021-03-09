@@ -100,8 +100,9 @@ Provides functionalities to authenticate, register, sign and also save the push 
 ## Integration
 
 Auxiliar functions available to reset and repopulate the database keeping it fresh whenever you want.\
-As in this demo project we don't provide any CMS application, at least there is a logic in place to register more than 50 products.\
-We also provide a script to send push notification message to all user registered in the application, so you can test the PWA service workers developed in the forntend application.
+As in this demo project we don't provide any CMS application, at least there is a logic in place to register more than 50 products.
+
+We also provide a script to send push notification message to all users registered in the application, so you can test the PWA service workers developed in the forntend application.
 
 
 <br/>
