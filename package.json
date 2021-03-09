@@ -1,0 +1,52 @@
+{
+  "name": "trinbox-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only src/server.ts",
+    "production": "production=true npm run start",
+    "integration": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only src/integration/database.ts",
+    "notification": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only src/integration/notification.ts",
+    "vapid": "web-push generate-vapid-keys"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rodrigotosta/trinbox-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rodrigotosta/trinbox-api/issues"
+  },
+  "homepage": "https://github.com/rodrigotosta/trinbox-api#readme",
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/compression": "^1.7.0",
+    "@types/cors": "^2.8.8",
+    "@types/express": "^4.17.8",
+    "@types/jsonwebtoken": "^8.5.0",
+    "@types/mongoose": "^5.7.36",
+    "@types/web-push": "^3.3.0",
+    "@typescript-eslint/eslint-plugin": "^4.6.0",
+    "@typescript-eslint/parser": "^4.6.0",
+    "eslint": "^7.12.1",
+    "eslint-config-standard": "^16.0.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "ts-node": "^9.1.1",
+    "ts-node-dev": "^1.0.0",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^4.0.5"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.11",
+    "web-push": "^3.4.4"
+  }
+}

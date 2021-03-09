@@ -1,0 +1,20 @@
+{
+    "workbench.settings.editor": "json",
+    // "editor.formatOnSave": false,
+    "[typescript]": {
+        "editor.formatOnSave": false
+    },
+    "[javascript]": {
+        "editor.formatOnSave": false
+    },
+    // "[json]": {
+    //     "editor.formatOnSave": false   
+    // },
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true,
+    },
+    "eslint.validate": [
+        "javascript",
+        "typescript",
+    ]
+}
