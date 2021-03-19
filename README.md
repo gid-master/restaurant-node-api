@@ -4,27 +4,50 @@ The idea behind this project is to provide a complete backend API used along wit
 
 ![](doc/demo.gif)
 
+## Quick Start
+
+Firstly, clone and install all necessary packages, then start it locally.
+
+```
+> git clone https://github.com/gid-master/restaurant-node-app.git
+
+> npm install
+
+> npm start
+```
+
+Initially the application will work normally because it's using mock data. However, if you want to connect to a real mongoDb database, you need to provide your own connection string.
+
+[Set up your mongoDb Atlas - Getting Started](https://docs.atlas.mongodb.com/getting-started/)
+
+Once you have set up your mongoDb cloud database, you just need to change the environment variable to be able to expose the endpoins, the variable can be found inside <strong>environment.ts</strong> file in the src folder.
+
+```
+mongodb: "mongodb+srv://your-user:<password>@cluster.rhp27.mongodb.net/<dbname>?retryWrites=true&w=majority",
+```
+
+That's all, now you can also have the project connected to a mongoDb database.
+
 ## Application Content
 
-* [Main Libaries](#main-libaries)
-* [Mock](#mock)
-* [Environment](#environment)
-* [MongoDB Connection](#mongodb-connection)
-* [Application](#application)
-* [Middlewares](#middlewares)
-* [Routes](#routes)
-* [Schemas](#schemas)
-* [Controllers](#controllers)
-* [Integration](#integration)
-* [How to Run](#how-to-run)
+- [Main Libaries](#main-libaries)
+- [Mock](#mock)
+- [Environment](#environment)
+- [MongoDB Connection](#mongodb-connection)
+- [Application](#application)
+- [Middlewares](#middlewares)
+- [Routes](#routes)
+- [Schemas](#schemas)
+- [Controllers](#controllers)
+- [Integration](#integration)
+- [How to Run](#how-to-run)
 
 ## Main Libaries
 
-* Express
-* MongoDb / Mongoose
-* Typescript
-* Webpush
-
+- Express
+- MongoDb / Mongoose
+- Typescript
+- Webpush
 
 ## Mock
 
@@ -32,15 +55,13 @@ If you don't want to create a mongoDb cloud database, then you can test this API
 You just need to enable the attribute <strong>useMock</strong> inside the <strong>environment.ts</strong> file.\
 After that all the endpoints will return a static data, so all routers are intercepeted using a middleware (more details below).
 
-
 ## Environemnt
 
 This file defines important settings for database and push notification.
-    
-* mongodb - connection string used to open a database connection.
-* pushNotification - define public/private token used to allow send user notifications to the client application.
-* token - private key used to encode the user password.
 
+- mongodb - connection string used to open a database connection.
+- pushNotification - define public/private token used to allow send user notifications to the client application.
+- token - private key used to encode the user password.
 
 ## MongoDB Connection
 
@@ -52,21 +73,18 @@ Checkout the documentation and create your own cloud database for free:\
 
 Example of connection string: mongodb+srv://your-user:<password>@cluster.rhp27.mongodb.net/<dbname>?retryWrites=true&w=majority
 
-
 In this project we have used simple queries, advanced aggregation, standard methods like find, create, update and also custom methods implemented in the schemas.
-
 
 ## Application
 
 The file where we bootstrap the application exposing an single instance of the express application.\
-Besides that, the class sets up all API's routes, initialize the database connection and also apply all prime middlewares, 
+Besides that, the class sets up all API's routes, initialize the database connection and also apply all prime middlewares,
 such as, cors (to avoid cross domain issue) and gzip compression (light responses).\
-
 
 ## Middlewares
 
 Functions used to intercept any request and response in order to transform data, grant authorization or execute any side effect functionalities.\
-In this project we are using a middleware to uncode a token sent through frontend header page, 
+In this project we are using a middleware to uncode a token sent through frontend header page,
 validate if it's a valid token and only after that proceed with the original request, or response back as a 403 error to notify that the user is not authorized.
 
 ## Routes
@@ -79,7 +97,6 @@ From this point we define the controller method that will be responsible for pro
 Layer where we pre define the database structure and all interfaces used to help with that.\
 As in this project we are using mongodb, we expose the entire model based on these schemas, so it can be used in the controller layer in order to query or modify the data.
 
-
 ## Controllers
 
 The core business layer, the entire logic of the application is handled there.\
@@ -88,14 +105,14 @@ In this layer we also deals with queries and prepare the expected object communi
 
 The application was split up in different controllers, such as:
 
-* <strong>Order</strong>\
-Provides functionalities to fetch all orders saved by the authenticated user, create a new one and also review.
+- <strong>Order</strong>\
+  Provides functionalities to fetch all orders saved by the authenticated user, create a new one and also review.
 
-* <strong>Product</strong>\
-Provides a single functionality to fetch all products pre populated in the database.
+- <strong>Product</strong>\
+  Provides a single functionality to fetch all products pre populated in the database.
 
-* <strong>User</strong>\
-Provides functionalities to authenticate, register, sign and also save the push notification permission.
+- <strong>User</strong>\
+  Provides functionalities to authenticate, register, sign and also save the push notification permission.
 
 ## Integration
 
@@ -103,7 +120,6 @@ Auxiliar functions available to reset and repopulate the database keeping it fre
 As in this demo project we don't provide any CMS application, at least there is a logic in place to register more than 50 products.
 
 We also provide a script to send push notification message to all users registered in the application, so you can test the PWA service workers developed in the forntend application.
-
 
 <br/>
 
@@ -113,23 +129,26 @@ This script drop the database and repopulate product collection using fresh ids.
 ```
 npm run integration
 ```
+
 <br/>
 
 Run this preset script in order to send push notifications to the registered users.\
 This screen loop all users and verify if the push permission was grantted, if it was, then you can write a custom message to them.
+
 ```
 npm run notification
 ```
 
-
 You also can change the current web push notification configuration if you want.\
 There is a script in place that generates a valid vapid, so you just need to replace the push notification tokens inside <strong>environment.ts</strong> file.\
 Keep in mind that the public token should be added into the frontend project to match with the new settings.
+
 ```
 npm run vapid
 ```
 
 ## How to Run
+
 This is the backend application only, this project provides some API's integrated with a real cloud database.
 
 In order to have it runing along with a frontend application, you need to follow the steps for further settings.
@@ -137,17 +156,15 @@ In order to have it runing along with a frontend application, you need to follow
 <br/>
 
 Install all necessary packages.
+
 ```
 npm install
 ```
+
 <br/>
 
 Initialize the application
+
 ```
 npm start
 ```
-
-
-
-
-
