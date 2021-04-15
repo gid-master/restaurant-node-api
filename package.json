@@ -1,5 +1,5 @@
 {
-  "name": "trinbox-api",
+  "name": "restaurant-api",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,16 +10,8 @@
     "notification": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only src/integration/notification.ts",
     "vapid": "web-push generate-vapid-keys"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/rodrigotosta/trinbox-api.git"
-  },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/rodrigotosta/trinbox-api/issues"
-  },
-  "homepage": "https://github.com/rodrigotosta/trinbox-api#readme",
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
     "@types/compression": "^1.7.0",
